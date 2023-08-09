@@ -20,10 +20,10 @@ export default function DriversPage() {
             <h1>Drivers page</h1>
             <h1>Showing {drivers.length} drivers</h1>
             {drivers.map((driver) => (
-                <div key={driver?.driverId}>
+                <figure key={driver?.driverId}>
                     <h2>{driver?.givenName} {driver?.familyName}</h2>
                     <p>Nationality: {driver?.nationality}</p>
-                </div>
+                </figure>
             ))}
             <Link to={"/driverdetails"}>Go to Details Page</Link>
         </>

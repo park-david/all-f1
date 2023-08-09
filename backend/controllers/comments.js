@@ -12,8 +12,8 @@ const db = require('../models')
 /* Routes
 ---------------------------------------------------------- */
 // Index Route (GET/Read): Will display all comments
-router.get('/:countryId', function (req, res) {
-    db.Comment.find({ countryId: req.params.countryId })
+router.get('/:circuitId', function (req, res) {
+    db.Comment.find({ circuitId: req.params.circuitId })
         .then(comments => res.json(comments))
 })
 

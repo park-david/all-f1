@@ -67,3 +67,11 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+figure {
+  border: solid 2px white;
+}
+
+.circuits img {
+  width: 100px;
+}

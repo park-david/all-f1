@@ -20,9 +20,9 @@ export default function ConstructorsPage() {
             <h1>constructors page</h1>
             <h1>Showing {constructors.length} constructors</h1>
             {constructors.map((constructor) => (
-                <div key={constructor?.constructorId}>
+                <figure key={constructor?.constructorId}>
                     <h2>{constructor?.name}</h2>
-                </div>
+                </figure>
             ))}
             <Link to={"/constructordetails"}>Go to Details Page</Link>
         </>
