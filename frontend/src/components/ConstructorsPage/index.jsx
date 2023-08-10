@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 export default function ConstructorsPage() {
     const [constructors, setConstructors] = useState([])
-    const [constructorData, setConstructorData] = useState({})
 
     async function getData(url) {
         const res = await fetch(url)
@@ -20,11 +19,14 @@ export default function ConstructorsPage() {
             <h1>constructors page</h1>
             <h1>Showing {constructors.length} constructors</h1>
             {constructors.map((constructor) => (
-                <Link>
-                    <figure key={constructor.constructorId}>
+                <Link
+                    key={constructor.constructorId}
+                    to={`/constructors/${constructor.constructorId}`}
+                    state={{ constructor }}>
+                    <figure>
                         <h2>{constructor.name}</h2>
                     </figure>
-                </Link>
+                </Link>  
             ))}
         </>
     )

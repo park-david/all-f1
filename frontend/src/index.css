@@ -80,3 +80,11 @@ div.circuits {
 div.carousel {
   width: 600px;
 }
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
