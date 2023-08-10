@@ -1,8 +1,8 @@
-import { Routes, Route, Link } from "react-router-dom";
-import HomePage from "../HomePage";
-import DriversPage from "../DriversPage";
-import ConstructorsPage from "../ConstructorsPage";
-import SearchPage from "../SearchPage";
+import { Routes, Route, Link } from "react-router-dom"
+import HomePage from "../HomePage"
+import DriversPage from "../DriversPage"
+import ConstructorsPage from "../ConstructorsPage"
+import SearchPage from "../SearchPage"
 import './styles.css'
 
 export default function App() {

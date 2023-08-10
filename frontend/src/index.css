@@ -72,6 +72,11 @@ figure {
   border: solid 2px white;
 }
 
-.circuits img {
-  width: 100px;
+div.circuits {
+  width: 500px;
+  margin: auto;
+}
+
+div.carousel {
+  width: 600px;
 }

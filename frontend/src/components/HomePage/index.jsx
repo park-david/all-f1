@@ -1,47 +1,44 @@
-import { useState, useEffect, React } from 'react'
-import { Carousel } from 'react-responsive-carousel'
-import 'react-responsive-carousel/lib/styles/carousel.min.css'
-import WaitingRoom from '../WaitingRoom'
+import { useState, useEffect } from 'react';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import CommentThread from '../CommentThread';
 
 export default function HomePage() {
     const [circuits, setCircuits] = useState([]);
-    const [carouselStates, setCarouselStates] = useState([])
+    const [currentSlide, setCurrentSlide] = useState(0);
 
     async function getData(url) {
-        const res = await fetch(url)
-        const data = await res.json()
-        setCircuits(data.MRData.RaceTable.Races)
-        // console.log(data.MRData.RaceTable.Races[0].Circuit.circuitId);
+        const res = await fetch(url);
+        const data = await res.json();
+        setCircuits(data.MRData.RaceTable.Races);
     }
+
     useEffect(() => {
-        getData(`https://ergast.com/api/f1/current.json`)
-    }, [])
-        
-    const handleCarouselChange = (index) => {
-        const updatedStates = carouselStates.map((state, i) => i === index)
-        setCarouselStates(updatedStates)
-        console.log(carouselStates)
-    }
+        getData(`https://ergast.com/api/f1/current.json`);
+    }, []);
+
+    const CarouselChange = (index) => {
+        setCurrentSlide(index);
+    };
 
     return (
         <>
             <h1>homepage</h1>
-            <div>
-                <Carousel showThumbs={false} onChange={handleCarouselChange}>
+            <div className='carousel'>
+                <Carousel showThumbs={false} onChange={CarouselChange} selectedItem={currentSlide}>
                     {circuits.map((circuit, index) => (
-                        <div className='circuits' key={circuit?.raceName}>
-                            <img
-                                src={`../src/assets/circuits/${circuit?.Circuit?.circuitId}.png`}
-                                alt={circuit?.raceName}
-                            />
-                            <p className="legend">
-                                {circuit?.raceName} - {circuit?.date}
-                            </p>
+                        <div className="circuits" key={circuit.raceName}>
+                            <img src={`../src/assets/circuits/${circuit.Circuit.circuitId}.png`} alt={circuit.raceName} />
+                            <p>{circuit.raceName} - {circuit.date}</p>
                         </div>
                     ))}
                 </Carousel>
-                {/* <WaitingRoom circuitId={circuits} ></WaitingRoom> */}
+                <div className="commentThread">
+                    {circuits.map((circuit, index) => (
+                        index === currentSlide && (<CommentThread key={circuit.Circuit.circuitId} circuitId={circuit.Circuit.circuitId} />)
+                    ))}
+                </div>
             </div>
         </>
-    )
+    );
 }

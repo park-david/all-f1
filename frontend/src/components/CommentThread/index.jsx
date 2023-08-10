@@ -2,14 +2,13 @@ import { useState, useEffect } from "react"
 import { postComment, getComments } from "../../../utils/backend"
 import Comment from "../Comment"
 
-export default function WaitingRoom({ circuitId }) {
+export default function CommentThread({ circuitId }) {
     const [comments, setComments] = useState([])
     const [showCreateForm, setShowCreateForm] = useState(false)
     const [createFormData, setCreateFormData] = useState({
         name: '',
         content: ''
     })
-    console.log(circuitId)
     useEffect(() => {
         getComments(circuitId)
             .then(comments => setComments(comments))
@@ -59,8 +58,8 @@ export default function WaitingRoom({ circuitId }) {
     }
     // console.log(comments)
     return (
-        <div>
-            <h1>Waiting Room</h1>
+        <div className="comments">
+            <h1>Comments</h1>
             <button onClick={toggleCreateForm}>{btnText}</button>
             {
                 showCreateForm && <form
