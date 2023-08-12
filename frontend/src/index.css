@@ -1,3 +1,6 @@
+/* import 'semantic-ui-css/semantic.min.css'; */
+
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -99,3 +102,11 @@ div.driverDetails {
 .drivers {
   border: 2px solid white;
 }
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 2px solid black;
+  width: 400px;
+} */

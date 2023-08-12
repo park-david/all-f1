@@ -12,6 +12,7 @@ export default function DriverDetailsPage({ driversData }) {
                 {driver.givenName} {driver.familyName}
             </h1>
             <div className="driverDetails">
+                <img src={`../src/assets/drivers/${driverId}.png`} />
                 <ul>
                     <li>Nationality: {driver.nationality}</li>
                     <li>Driver Number: {driver.permanentNumber}</li>

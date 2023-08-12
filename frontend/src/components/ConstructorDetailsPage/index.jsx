@@ -16,6 +16,7 @@ export default function ConstructorDetailsPage({ constructorsData, driversData }
     return (
         <div>
             <h1>{constructor.name}</h1>
+            <img src={`../src/assets/constructors/${constructorId}.jpg`} />
             <ul>
                 <li>Country: {constructor.nationality}</li>
                 <li>Position: {position}</li>
