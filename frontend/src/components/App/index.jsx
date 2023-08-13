@@ -1,4 +1,4 @@
-import { Routes, Route, Link } from "react-router-dom"
+import { Routes, Route } from "react-router-dom"
 import { useState, useEffect } from 'react'
 import HomePage from "../HomePage"
 import DriversPage from "../DriversPage"
@@ -6,6 +6,8 @@ import DriverDetailsPage from '../DriverDetailsPage'
 import ConstructorsPage from "../ConstructorsPage"
 import ConstructorDetailsPage from "../ConstructorDetailsPage"
 import './styles.css'
+import 'semantic-ui-css/semantic.min.css'
+import Stackable from '../SemanticUI/Stackable'
 
 export default function App() {
   const [circuitsData, setCircuitsData] = useState([])
@@ -42,9 +44,7 @@ export default function App() {
   return (
     <>
       <nav>
-        <Link to="/">All F1</Link>
-        <Link to="/drivers">Drivers</Link>
-        <Link to="/constructors">Constructors</Link>
+        <Stackable />
       </nav>
 
       <main>
