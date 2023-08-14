@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react"
 import { postComment, getComments } from "../../../utils/backend"
 import Comment from "../Comment"
+import { Button, Form } from 'semantic-ui-react'
+
+import "semantic-ui-css/semantic.min.css"
+
 
 export default function CommentThread({ circuitId }) {
     const [comments, setComments] = useState([])
@@ -60,25 +64,26 @@ export default function CommentThread({ circuitId }) {
     return (
         <div className="comments">
             <h1>Comments</h1>
-            <button onClick={toggleCreateForm}>{btnText}</button>
+            <Button onClick={toggleCreateForm}>{btnText}</Button>
             {
-                showCreateForm && <form
-                    onSubmit={handleSubmit}>
-                    <input
-                        name="name"
-                        placeholder="Name"
-                        value={createFormData.name}
-                        onChange={handleInputChange}
-                    />
-                    <br />
-                    <textarea
-                        name="content"
-                        placeholder="Comment"
-                        value={createFormData.content}
-                        onChange={handleInputChange}
-                    />
-                    <button type="submit">Post</button>
-                </form>
+                showCreateForm && (
+                    <Form onSubmit={handleSubmit}>
+                        <Form.Input
+                            name="name"
+                            placeholder="Name"
+                            value={createFormData.name}
+                            onChange={handleInputChange}
+                        />
+                        <br />
+                        <Form.TextArea
+                            name="content"
+                            placeholder="Comment"
+                            value={createFormData.content}
+                            onChange={handleInputChange}
+                        />
+                        <Button type="submit">Post</Button>
+                    </Form>
+                )
             }
             {commentElements}
         </div>

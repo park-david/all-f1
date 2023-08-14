@@ -6,7 +6,6 @@ export default function ConstructorsPage({ constructorsData }) {
 
     return (
         <>
-            <h1>Constructors page</h1>
             <Grid columns={2} divided>
                 {constructors.map((constructorIndex) => {
                     const constructor = constructorIndex.Constructor
@@ -14,9 +13,8 @@ export default function ConstructorsPage({ constructorsData }) {
                     const points = constructorIndex.points
                     const wins = constructorIndex.wins
                     return (
-                        <Grid.Column>
+                        <Grid.Column key={constructor.constructorId}>
                             <Link
-                                key={constructor.constructorId}
                                 to={`/constructors/${constructor.constructorId}`}
                                 state={{ constructor, position, points, wins }}
                             >

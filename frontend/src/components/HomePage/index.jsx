@@ -12,7 +12,6 @@ export default function HomePage({ circuitsData }) {
 
     return (
         <>
-            <h1>homepage</h1>
             <div className='carousel'>
                 <Carousel showThumbs={false} onChange={CarouselChange} selectedItem={currentSlide}>
                     {circuitsData.map((circuit, index) => (

@@ -6,7 +6,6 @@ export default function DriversPage({ driversData }) {
 
     return (
         <>
-            <h1>Drivers page</h1>
             <Grid columns={3} divided>
                 {drivers.map((driverIndex) => {
                     const driver = driverIndex.Driver

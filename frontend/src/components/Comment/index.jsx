@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { updateComment, deleteComment } from "../../../utils/backend"
-import { Button, Form, TextArea, Comment as SUIComment } from 'semantic-ui-react'
+import { Button, Form, Comment as SUIComment } from 'semantic-ui-react'
 
 export default function Comment({ data, refreshComments }) {
     const [showEditForm, setShowEditForm] = useState(false)
@@ -8,6 +8,8 @@ export default function Comment({ data, refreshComments }) {
         name: data.name,
         content: data.content
     })
+
+    const [commentTimestamp, setCommentTimestamp] = useState(data.createdAt)
 
     function handleInputChange(event) {
         setEditFormData({
@@ -30,7 +32,6 @@ export default function Comment({ data, refreshComments }) {
 
     return (
         <SUIComment>
-            <SUIComment.Avatar src={data.avatarUrl} />
             <SUIComment.Content>
                 {showEditForm ? (
                     <Form onSubmit={handleSubmit}>
@@ -60,6 +61,9 @@ export default function Comment({ data, refreshComments }) {
                     <>
                         <SUIComment.Author as='a'>{data.name}</SUIComment.Author>
                         <SUIComment.Text>{data.content}</SUIComment.Text>
+                        <SUIComment.Metadata>
+                            <div>{new Date(commentTimestamp).toLocaleString()}</div>
+                        </SUIComment.Metadata>
                         <SUIComment.Actions>
                             <Button onClick={() => setShowEditForm(true)}>
                                 Edit

@@ -16,24 +16,27 @@ export default class Stackable extends Component {
                     name='features'
                     active={activeItem === 'features'}
                     onClick={this.handleItemClick}
+                    as={Link} to="/"
                 >
-                    <Link to="/">All F1</Link>
+                    All F1
                 </Menu.Item>
 
                 <Menu.Item
                     name='testimonials'
                     active={activeItem === 'testimonials'}
                     onClick={this.handleItemClick}
+                    as={Link} to="/drivers"
                 >
-                    <Link to="/drivers">Drivers</Link>
+                    Drivers
                 </Menu.Item>
 
                 <Menu.Item
                     name='sign-in'
                     active={activeItem === 'sign-in'}
                     onClick={this.handleItemClick}
+                    as={Link} to="/constructors"
                 >
-                    <Link to="/constructors">Constructors</Link>
+                    Constructors
                 </Menu.Item>
             </Menu>
         )
