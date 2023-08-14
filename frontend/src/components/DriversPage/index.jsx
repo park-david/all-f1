@@ -6,7 +6,7 @@ export default function DriversPage({ driversData }) {
 
     return (
         <>
-            <Grid columns={3} divided>
+            <Grid columns={3} divided stackable>
                 {drivers.map((driverIndex) => {
                     const driver = driverIndex.Driver
                     const constructor = driverIndex.Constructors[0]

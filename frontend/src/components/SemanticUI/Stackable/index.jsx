@@ -13,8 +13,8 @@ export default class Stackable extends Component {
         return (
             <Menu stackable>
                 <Menu.Item
-                    name='features'
-                    active={activeItem === 'features'}
+                    name='home'
+                    active={activeItem === 'home'}
                     onClick={this.handleItemClick}
                     as={Link} to="/"
                 >
@@ -22,8 +22,8 @@ export default class Stackable extends Component {
                 </Menu.Item>
 
                 <Menu.Item
-                    name='testimonials'
-                    active={activeItem === 'testimonials'}
+                    name='drivers'
+                    active={activeItem === 'drivers'}
                     onClick={this.handleItemClick}
                     as={Link} to="/drivers"
                 >
@@ -31,8 +31,8 @@ export default class Stackable extends Component {
                 </Menu.Item>
 
                 <Menu.Item
-                    name='sign-in'
-                    active={activeItem === 'sign-in'}
+                    name='constructors'
+                    active={activeItem === 'constructors'}
                     onClick={this.handleItemClick}
                     as={Link} to="/constructors"
                 >

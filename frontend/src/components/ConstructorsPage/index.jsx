@@ -6,7 +6,7 @@ export default function ConstructorsPage({ constructorsData }) {
 
     return (
         <>
-            <Grid columns={2} divided>
+            <Grid columns={2} divided stackable>
                 {constructors.map((constructorIndex) => {
                     const constructor = constructorIndex.Constructor
                     const position = constructorIndex.position

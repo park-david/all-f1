@@ -17,7 +17,7 @@ export default function ConstructorDetailsPage({ constructorsData, driversData }
     return (
         <div>
             <h1>{constructor.name}</h1>
-            <Grid columns={2}>
+            <Grid columns={2} stackable>
                 <Grid.Column width={4}>
                     <Image src={`../src/assets/constructors/${constructorId}.jpg`} />
                 </Grid.Column>

@@ -12,7 +12,7 @@ export default function DriverDetailsPage({ driversData }) {
             <h1>
                 {driver.givenName} {driver.familyName}
             </h1>
-            <Grid columns={2}>
+            <Grid columns={2} stackable>
                 <Grid.Column width={4}>
                     <Image src={`../src/assets/drivers/${driverId}.png`} />
                 </Grid.Column>
