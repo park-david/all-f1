@@ -14,7 +14,7 @@ export default function DriverDetailsPage({ driversData }) {
             </h1>
             <Grid columns={2} stackable>
                 <Grid.Column width={4}>
-                    <Image src={`../src/assets/drivers/${driverId}.png`} />
+                    <Image src={`../assets/drivers/${driverId}.png`} />
                 </Grid.Column>
                 <Grid.Column width={12}>
                     <div className="driverDetails">
