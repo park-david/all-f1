@@ -2,7 +2,6 @@ import { useState, useEffect } from "react"
 import { postComment, getComments } from "../../../utils/backend"
 import Comment from "../Comment"
 import { Button, Form } from 'semantic-ui-react'
-
 import "semantic-ui-css/semantic.min.css"
 
 

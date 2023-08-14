@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Grid } from 'semantic-ui-react'
+import { Grid, Card } from 'semantic-ui-react'
 
 export default function DriversPage({ driversData }) {
     const drivers = driversData[0].DriverStandings || []

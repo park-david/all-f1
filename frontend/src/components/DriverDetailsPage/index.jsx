@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom'
-import { Grid, Image } from 'semantic-ui-react'
+import { Grid, Image, Card } from 'semantic-ui-react'
 
 export default function DriverDetailsPage({ driversData }) {
     const { driverId } = useParams()
@@ -8,34 +8,42 @@ export default function DriverDetailsPage({ driversData }) {
     const { Driver: driver, Constructors: constructors, position, points, wins } = driverList[driverIndex] || {}
 
     return (
-        <div>
-            <h1>
-                {driver.givenName} {driver.familyName}
-            </h1>
+        <div className='driverDetails'>
+            <Card centered>
+                <h1>
+                    {driver.givenName} {driver.familyName}
+                </h1>
+            </Card>
             <Grid columns={2} stackable>
-                <Grid.Column width={4}>
-                    <Image src={`../assets/drivers/${driverId}.png`} />
-                </Grid.Column>
+                <Card centered>
+                    <Grid.Column width={4}>
+                        <Image src={`../assets/drivers/${driverId}.png`} />
+                    </Grid.Column>
+                </Card>
                 <Grid.Column width={12}>
                     <div className="driverDetails">
-                        <ul>
-                            <li>Nationality: {driver.nationality}</li>
-                            <li>Driver Number: {driver.permanentNumber}</li>
-                            <li>Born: {driver.dateOfBirth}</li>
-                            {constructors && constructors.length > 0 && (
-                                <li>Constructor: {constructors[0].name}</li>
-                            )}
-                            <li>
-                                <a href={driver.url} target="_blank" rel="noopener noreferrer">
-                                    Wiki Page
-                                </a>
-                            </li>
-                        </ul>
-                        <ul>
-                            <li>Position: {position}</li>
-                            <li>Points: {points}</li>
-                            <li>Wins: {wins}</li>
-                        </ul>
+                        <Card centered>
+                            <ul>
+                                <li>Nationality: {driver.nationality}</li>
+                                <li>Driver Number: {driver.permanentNumber}</li>
+                                <li>Born: {driver.dateOfBirth}</li>
+                                {constructors && constructors.length > 0 && (
+                                    <li>Constructor: {constructors[0].name}</li>
+                                )}
+                                <li>
+                                    <a href={driver.url} target="_blank">
+                                        Wiki Page
+                                    </a>
+                                </li>
+                            </ul>
+                        </Card>
+                        <Card centered>
+                            <ul>
+                                <li>Position: {position}</li>
+                                <li>Points: {points}</li>
+                                <li>Wins: {wins}</li>
+                            </ul>
+                        </Card>
                     </div>
                 </Grid.Column>
             </Grid>
