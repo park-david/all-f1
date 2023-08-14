@@ -12,12 +12,11 @@ export default function HomePage({ circuitsData }) {
 
     return (
         <>
-        <h1>test</h1>
             <div className='carousel'>
                 <Carousel showThumbs={false} onChange={CarouselChange} selectedItem={currentSlide}>
                     {circuitsData.map((circuit, index) => (
                         <div className="circuits" key={circuit.raceName}>
-                            <img src={`../frontend/src/assets/circuits/${circuit.Circuit.circuitId}.png`} alt={circuit.raceName} />
+                            <img src={`${process.env.PUBLIC_URL}/assets/circuits/${circuit.Circuit.circuitId}.png`} alt={circuit.raceName} />
                             <p><a href={circuit.url} target="_blank">{circuit.raceName}</a> | {circuit.date}</p>
                         </div>
                     ))}
