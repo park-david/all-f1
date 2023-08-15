@@ -77,9 +77,7 @@ figure {
 }
 
 
-ul {
-  padding: 0;
-}
+
 
 div.driverDetails {
   border: 2px solid white;
@@ -90,18 +88,18 @@ div.driverDetails {
 
 */
 
-body {
-
-}
-
 main {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
 img {
   min-width: 200px;
+}
+
+ul {
+  padding: 0;
 }
 
 li {
@@ -124,7 +122,21 @@ nav {
 
 @media (max-width: 767px) {
   main {
-    margin-top: 100px;
+    margin-top: 130px;
   }
 }
 
+.constructorImage, .driverImage {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+
+h2, li {
+  display: flex;
+  justify-content: center;
+}
+
+.navBar {
+  font-size: large;
+}

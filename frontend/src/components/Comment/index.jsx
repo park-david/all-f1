@@ -33,6 +33,9 @@ export default function Comment({ data, refreshComments }) {
     return (
         <Card centered>
             <SUIComment>
+                <SUIComment.Metadata>
+                    <div>{new Date(commentTimestamp).toLocaleString()}</div>
+                </SUIComment.Metadata>
                 <SUIComment.Content>
                     {showEditForm ? (
                         <Form onSubmit={handleSubmit}>
@@ -62,9 +65,6 @@ export default function Comment({ data, refreshComments }) {
                         <>
                             <SUIComment.Author as='a'>{data.name}</SUIComment.Author>
                             <SUIComment.Text>{data.content}</SUIComment.Text>
-                            <SUIComment.Metadata>
-                                <div>{new Date(commentTimestamp).toLocaleString()}</div>
-                            </SUIComment.Metadata>
                             <SUIComment.Actions>
                                 <Button onClick={() => setShowEditForm(true)}>
                                     Edit

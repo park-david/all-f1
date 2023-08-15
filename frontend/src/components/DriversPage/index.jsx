@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom'
-import { Grid, Card } from 'semantic-ui-react'
+import { Grid } from 'semantic-ui-react'
 
 export default function DriversPage({ driversData }) {
     const drivers = driversData[0].DriverStandings || []
 
     return (
         <>
-            <Grid columns={3} divided stackable>
+            <Grid columns={3} divided stackable celled>
                 {drivers.map((driverIndex) => {
                     const driver = driverIndex.Driver
                     const constructor = driverIndex.Constructors[0]

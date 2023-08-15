@@ -24,13 +24,11 @@ export default function HomePage({ circuitsData }) {
                         ))}
                     </Carousel>
                 </Card>
-                <Card fluid>
-                    <div className="commentThread">
-                        {circuitsData.map((circuit, index) => (
-                            index === currentSlide && (<CommentThread key={circuit.Circuit.circuitId} circuitId={circuit.Circuit.circuitId} />)
-                        ))}
-                    </div>
-                </Card>
+                <div className="commentThread">
+                    {circuitsData.map((circuit, index) => (
+                        index === currentSlide && (<CommentThread key={circuit.Circuit.circuitId} circuitId={circuit.Circuit.circuitId} />)
+                    ))}
+                </div>
             </div>
         </>
     )

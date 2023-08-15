@@ -1,6 +1,6 @@
 import { Component } from 'react'
-import { Menu } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
+import { Menu, Header } from 'semantic-ui-react'
 
 export default class Stackable extends Component {
     state = {}
@@ -18,7 +18,7 @@ export default class Stackable extends Component {
                     onClick={this.handleItemClick}
                     as={Link} to="/"
                 >
-                    All F1
+                    <Header as='h2'>All F1</Header>
                 </Menu.Item>
 
                 <Menu.Item
@@ -27,7 +27,7 @@ export default class Stackable extends Component {
                     onClick={this.handleItemClick}
                     as={Link} to="/drivers"
                 >
-                    Drivers
+                    <Header as='h3'>Drivers</Header>
                 </Menu.Item>
 
                 <Menu.Item
@@ -36,7 +36,7 @@ export default class Stackable extends Component {
                     onClick={this.handleItemClick}
                     as={Link} to="/constructors"
                 >
-                    Constructors
+                    <Header as='h3'>Constructors</Header>
                 </Menu.Item>
             </Menu>
         )

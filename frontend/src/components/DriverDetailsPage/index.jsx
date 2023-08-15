@@ -10,17 +10,19 @@ export default function DriverDetailsPage({ driversData }) {
     return (
         <div className='driverDetails'>
             <Card centered>
-                <h1>
+                <h1 className='driverName'>
                     {driver.givenName} {driver.familyName}
                 </h1>
             </Card>
-            <Grid columns={2} stackable>
+            <Grid columns={2} stackable centered>
                 <Card centered>
-                    <Grid.Column width={4}>
-                        <Image src={`../assets/drivers/${driverId}.png`} />
+                    <Grid.Column >
+                        <div className="driverImage">
+                            <Image src={`../assets/drivers/${driverId}.png`} />
+                        </div>
                     </Grid.Column>
                 </Card>
-                <Grid.Column width={12}>
+                <Grid.Column width={100}>
                     <div className="driverDetails">
                         <Card centered>
                             <ul>

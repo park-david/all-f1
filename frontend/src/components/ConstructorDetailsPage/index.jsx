@@ -11,16 +11,18 @@ export default function ConstructorDetailsPage({ constructorsData, driversData }
 
     return (
         <div>
-            <Card>
+            <Card centered>
                 <h1>{constructor.name}</h1>
             </Card>
-            <Grid columns={2} stackable>
-                <Card>
+            <Grid columns={2} stackable centered>
+                <Card centered>
                     <Grid.Column width={4}>
-                        <Image src={`../assets/constructors/${constructorId}.jpg`} />
+                        <div className="constructorImage">
+                            <Image src={`../assets/constructors/${constructorId}.jpg`} />
+                        </div>
                     </Grid.Column>
                 </Card>
-                <Grid.Column width={12}>
+                <Grid.Column width={100}>
                     <div className="constructorDetails">
                         <Card>
                             <ul>
@@ -32,8 +34,8 @@ export default function ConstructorDetailsPage({ constructorsData, driversData }
                             </ul>
                         </Card>
                         {teamDrivers && teamDrivers.length > 0 && (
-                            <Card>
-                                <div>
+                            <Card centered>
+                                <div className="constructorDrivers">
                                     <h2>Drivers:</h2>
                                     <div className="drivers">
                                         <ul>
