@@ -18,8 +18,8 @@ export default function HomePage({ circuitsData }) {
                     <Carousel showThumbs={false} onChange={CarouselChange} selectedItem={currentSlide}>
                         {circuitsData.map((circuit, index) => (
                             <div className="circuits" key={circuit.raceName}>
+                                <h2><a href={circuit.url} target="_blank">{circuit.raceName}</a>|{circuit.date}</h2>
                                 <img src={`../assets/circuits/${circuit.Circuit.circuitId}.png`} alt={circuit.raceName} />
-                                <p><a href={circuit.url} target="_blank">{circuit.raceName}</a> | {circuit.date}</p>
                             </div>
                         ))}
                     </Carousel>

@@ -15,14 +15,14 @@ export default function DriverDetailsPage({ driversData }) {
                 </h1>
             </Card>
             <Grid columns={2} stackable centered>
-                <Card centered>
-                    <Grid.Column >
+                <Grid.Column >
+                    <Card centered>
                         <div className="driverImage">
                             <Image src={`../assets/drivers/${driverId}.png`} />
                         </div>
-                    </Grid.Column>
-                </Card>
-                <Grid.Column width={100}>
+                    </Card>
+                </Grid.Column>
+                <Grid.Column >
                     <div className="driverDetails">
                         <Card centered>
                             <ul>
@@ -32,11 +32,7 @@ export default function DriverDetailsPage({ driversData }) {
                                 {constructors && constructors.length > 0 && (
                                     <li>Constructor: {constructors[0].name}</li>
                                 )}
-                                <li>
-                                    <a href={driver.url} target="_blank">
-                                        Wiki Page
-                                    </a>
-                                </li>
+                                <li><a href={driver.url} target="_blank">Wiki Page</a></li>
                             </ul>
                         </Card>
                         <Card centered>

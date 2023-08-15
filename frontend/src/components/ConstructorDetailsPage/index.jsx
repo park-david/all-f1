@@ -10,21 +10,19 @@ export default function ConstructorDetailsPage({ constructorsData, driversData }
     const teamDrivers = driversData[0]?.DriverStandings.filter((driverIndex) => driverIndex.Constructors[0]?.constructorId === constructorId)
 
     return (
-        <div>
+        <div className="constructorDetailsCards">
             <Card centered>
                 <h1>{constructor.name}</h1>
             </Card>
             <Grid columns={2} stackable centered>
-                <Card centered>
-                    <Grid.Column width={4}>
+                <Grid.Column >
                         <div className="constructorImage">
                             <Image src={`../assets/constructors/${constructorId}.jpg`} />
                         </div>
-                    </Grid.Column>
-                </Card>
-                <Grid.Column width={100}>
+                </Grid.Column>
+                <Grid.Column >
                     <div className="constructorDetails">
-                        <Card>
+                        <Card centered>
                             <ul>
                                 <li>Country: {constructor.nationality}</li>
                                 <li>Position: {position}</li>

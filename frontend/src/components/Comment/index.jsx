@@ -63,7 +63,7 @@ export default function Comment({ data, refreshComments }) {
                         </Form>
                     ) : (
                         <>
-                            <SUIComment.Author as='a'>{data.name}</SUIComment.Author>
+                            <SUIComment.Author as='h5'>{data.name}</SUIComment.Author>
                             <SUIComment.Text>{data.content}</SUIComment.Text>
                             <SUIComment.Actions>
                                 <Button onClick={() => setShowEditForm(true)}>

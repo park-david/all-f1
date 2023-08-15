@@ -11,7 +11,7 @@ export default class Stackable extends Component {
         const { activeItem } = this.state
 
         return (
-            <Menu className='navBar' stackable>
+            <Menu className='navBar' stackable >
                 <Menu.Item
                     name='home'
                     active={activeItem === 'home'}
@@ -27,7 +27,7 @@ export default class Stackable extends Component {
                     onClick={this.handleItemClick}
                     as={Link} to="/drivers"
                 >
-                    <Header as='h3'>Drivers</Header>
+                    <Header as='h4'>Drivers</Header>
                 </Menu.Item>
 
                 <Menu.Item
@@ -36,7 +36,7 @@ export default class Stackable extends Component {
                     onClick={this.handleItemClick}
                     as={Link} to="/constructors"
                 >
-                    <Header as='h3'>Constructors</Header>
+                    <Header as='h4'>Constructors</Header>
                 </Menu.Item>
             </Menu>
         )
