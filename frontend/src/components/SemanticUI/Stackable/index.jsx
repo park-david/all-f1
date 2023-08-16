@@ -11,7 +11,7 @@ export default class Stackable extends Component {
         const { activeItem } = this.state
 
         return (
-            <Menu className='navBar' stackable >
+            <Menu className='navBar' stackable>
                 <Menu.Item
                     name='home'
                     active={activeItem === 'home'}

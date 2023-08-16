@@ -35,6 +35,12 @@ nav {
   z-index: 1000;
 }
 
+.navBar {
+  font-size: large;
+  display: flex;
+  justify-content: center;
+}
+
 @media (max-width: 767px) {
   main {
     margin-top: 130px;
@@ -63,10 +69,6 @@ h2, li, p {
 
 h2 {
   font-size: 22px;
-}
-
-.navBar {
-  font-size: large;
 }
 
 div {
