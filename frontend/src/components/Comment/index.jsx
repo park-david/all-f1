@@ -45,7 +45,6 @@ export default function Comment({ data, refreshComments }) {
                                 value={editFormData.name}
                                 onChange={handleInputChange}
                             />
-                            <br />
                             <Form.TextArea
                                 name="content"
                                 placeholder="Share your thoughts!"

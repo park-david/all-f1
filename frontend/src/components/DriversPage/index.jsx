@@ -21,7 +21,6 @@ export default function DriversPage({ driversData }) {
                                 state={{ driver, constructor, position, points, wins }}>
                                 <figure>
                                     <h2>{driver.givenName} {driver.familyName}</h2>
-                                    <p>Nationality: {driver.nationality}</p>
                                     <p>Position: {position} </p>
                                 </figure>
                             </Link>

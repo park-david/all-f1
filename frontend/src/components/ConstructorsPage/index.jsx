@@ -20,7 +20,7 @@ export default function ConstructorsPage({ constructorsData }) {
                             >
                                 <figure>
                                     <h2>{constructor.name}</h2>
-                                    <p>Nationality: {constructor.nationality}</p>
+                                    <p>Position: {position} </p>
                                 </figure>
                             </Link>
                         </Grid.Column>

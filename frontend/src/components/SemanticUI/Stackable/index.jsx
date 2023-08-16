@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { Menu, Header } from 'semantic-ui-react'
 
 export default class Stackable extends Component {
-    state = {}
+    state = { activeItem: 'home'}
 
     handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
