@@ -62,41 +62,47 @@ export default function DriverDetailsPage({ driversData }) {
                     </div>
                 </Grid.Column>
             </Grid>
-            <Grid>
-                <div className='prevButton'>
-                    {/* Previous driver button */}
-                    <Link to={`/drivers/${driverList[previousDriverIndex].Driver.driverId}`}>
-                        <Button icon labelPosition='left'>
-                            <Icon name='left arrow' />
-                            Previous Driver
-                        </Button>
-                    </Link>
-                </div>
-                {teammate.length > 0 && (
-                    <Card centered>
-                        <div className='teammate'>
-                            <h2>Teammate:</h2>
-                            <div>
-                                {teammate.map((teammate) => (
-                                    <p key={teammate.Driver.driverId}>
-                                        <Link to={`/drivers/${teammate.Driver.driverId}`}>
-                                            {teammate.Driver.givenName} {teammate.Driver.familyName}
-                                        </Link>
-                                    </p>
-                                ))}
+            <Grid columns={3} stackable>
+                <Grid.Column>
+                    <div className='prevButton'>
+                        {/* Previous driver button */}
+                        <Link to={`/drivers/${driverList[previousDriverIndex].Driver.driverId}`}>
+                            <Button icon labelPosition='left'>
+                                <Icon name='left arrow' />
+                                Previous Driver
+                            </Button>
+                        </Link>
+                    </div>
+                </Grid.Column>
+                <Grid.Column>
+                    {teammate.length > 0 && (
+                        <Card centered>
+                            <div className='teammate'>
+                                <h2>Teammate:</h2>
+                                <div>
+                                    {teammate.map((teammate) => (
+                                        <p key={teammate.Driver.driverId}>
+                                            <Link to={`/drivers/${teammate.Driver.driverId}`}>
+                                                {teammate.Driver.givenName} {teammate.Driver.familyName}
+                                            </Link>
+                                        </p>
+                                    ))}
+                                </div>
                             </div>
-                        </div>
-                    </Card>
-                )}
-                <div className="nextButton">
-                    {/* Next driver button */}
-                    <Link to={`/drivers/${driverList[nextDriverIndex].Driver.driverId}`}>
-                        <Button icon labelPosition='right'>
-                            Next Driver
-                            <Icon name='right arrow' />
-                        </Button>
-                    </Link>
-                </div>
+                        </Card>
+                    )}
+                </Grid.Column>
+                <Grid.Column>
+                    <div className="nextButton">
+                        {/* Next driver button */}
+                        <Link to={`/drivers/${driverList[nextDriverIndex].Driver.driverId}`}>
+                            <Button icon labelPosition='right'>
+                                Next Driver
+                                <Icon name='right arrow' />
+                            </Button>
+                        </Link>
+                    </div>
+                </Grid.Column>
             </Grid>
         </div>
     );
