@@ -1,14 +1,28 @@
-import { useParams, Link } from "react-router-dom"
-import { Grid, Image, Card, Button, Icon } from 'semantic-ui-react'
+import { useParams, Link } from "react-router-dom";
+import { Grid, Image, Card, Button, Icon } from 'semantic-ui-react';
 
 export default function DriverDetailsPage({ driversData }) {
-    const { driverId } = useParams()
-    const driverList = driversData[0].DriverStandings || []
-    const driverIndex = driverList.findIndex(driverIndex => driverIndex.Driver.driverId === driverId)
-    const { Driver: driver, Constructors: constructors, position, points, wins } = driverList[driverIndex] || {}
-    const constructorId = constructors[0]?.constructorId
-    const teammate = driverList.filter(driverIndex => 
-        driverIndex.Driver.driverId !== driverId && driverIndex.Constructors[0]?.constructorId === constructorId)
+    const { driverId } = useParams();
+    const driverList = driversData[0].DriverStandings || [];
+    const driverIndex = driverList.findIndex(driverIndex => driverIndex.Driver.driverId === driverId);
+    const { Driver: driver, Constructors: constructors, position, points, wins } = driverList[driverIndex] || {};
+    const constructorId = constructors[0]?.constructorId;
+    const teammate = driverList.filter(driverIndex =>
+        driverIndex.Driver.driverId !== driverId && driverIndex.Constructors[0]?.constructorId === constructorId);
+
+    // Function to get the next driver index
+    const getNextDriverIndex = () => {
+        return driverIndex < driverList.length - 1 ? driverIndex + 1 : 0;
+    };
+
+    // Function to get the previous driver index
+    const getPreviousDriverIndex = () => {
+        return driverIndex > 0 ? driverIndex - 1 : driverList.length - 1;
+    };
+
+    // Get the indices for the next and previous drivers
+    const nextDriverIndex = getNextDriverIndex();
+    const previousDriverIndex = getPreviousDriverIndex();
 
     return (
         <div className='driverDetails'>
@@ -35,7 +49,7 @@ export default function DriverDetailsPage({ driversData }) {
                                 {constructors && constructors.length > 0 && (
                                     <li>Constructor: {constructors[0].name}</li>
                                 )}
-                                <li><a href={driver.url} target="_blank">Wiki Page</a></li>
+                                <li><a href={driver.url} target="_blank" rel="noopener noreferrer">Wiki Page</a></li>
                             </ul>
                         </Card>
                         <Card centered>
@@ -48,22 +62,42 @@ export default function DriverDetailsPage({ driversData }) {
                     </div>
                 </Grid.Column>
             </Grid>
-            {teammate.length > 0 && (
-                <Card centered>
-                    <div className='teammate'>
-                        <h2>Teammate:</h2>
-                        <div>
-                            {teammate.map((teammate) => (
-                                <p key={teammate.Driver.driverId}>
-                                    <Link to={`/drivers/${teammate.Driver.driverId}`}>
-                                        {teammate.Driver.givenName} {teammate.Driver.familyName}
-                                    </Link>
-                                </p>
-                            ))}
+            <Grid>
+                <div className='prevButton'>
+                    {/* Previous driver button */}
+                    <Link to={`/drivers/${driverList[previousDriverIndex].Driver.driverId}`}>
+                        <Button icon labelPosition='left'>
+                            <Icon name='left arrow' />
+                            Previous Driver
+                        </Button>
+                    </Link>
+                </div>
+                {teammate.length > 0 && (
+                    <Card centered>
+                        <div className='teammate'>
+                            <h2>Teammate:</h2>
+                            <div>
+                                {teammate.map((teammate) => (
+                                    <p key={teammate.Driver.driverId}>
+                                        <Link to={`/drivers/${teammate.Driver.driverId}`}>
+                                            {teammate.Driver.givenName} {teammate.Driver.familyName}
+                                        </Link>
+                                    </p>
+                                ))}
+                            </div>
                         </div>
-                    </div>
-                </Card>
-            )}
+                    </Card>
+                )}
+                <div className="nextButton">
+                    {/* Next driver button */}
+                    <Link to={`/drivers/${driverList[nextDriverIndex].Driver.driverId}`}>
+                        <Button icon labelPosition='right'>
+                            Next Driver
+                            <Icon name='right arrow' />
+                        </Button>
+                    </Link>
+                </div>
+            </Grid>
         </div>
-    )
+    );
 }
