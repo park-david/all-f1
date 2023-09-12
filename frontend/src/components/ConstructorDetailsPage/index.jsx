@@ -1,5 +1,5 @@
 import { useParams, Link } from "react-router-dom"
-import { Grid, Image, Card } from 'semantic-ui-react'
+import { Grid, Image, Card, Button, Icon } from 'semantic-ui-react'
 
 export default function ConstructorDetailsPage({ constructorsData, driversData }) {
     const { constructorId } = useParams()
@@ -7,6 +7,20 @@ export default function ConstructorDetailsPage({ constructorsData, driversData }
     const constructorIndex = constructorList.findIndex((constructorIndex) => constructorIndex.Constructor.constructorId === constructorId)
     const { Constructor: constructor, position, points, wins } = constructorList[constructorIndex] || {}
     const teamDrivers = driversData[0]?.DriverStandings.filter((driverIndex) => driverIndex.Constructors[0]?.constructorId === constructorId)
+
+    // Function to get the next constructor index
+    const getNextConstructorIndex = () => {
+        return constructorIndex < constructorList.length - 1 ? constructorIndex + 1 : 0;
+    };
+
+    // Function to get the previous constructor index
+    const getPreviousConstructorIndex = () => {
+        return constructorIndex > 0 ? constructorIndex - 1 : constructorList.length - 1;
+    };
+
+    // Get the indices for the next and previous constructors
+    const nextConstructorIndex = getNextConstructorIndex();
+    const previousConstructorIndex = getPreviousConstructorIndex();
 
     return (
         <div className="constructorDetailsCards">
@@ -54,9 +68,35 @@ export default function ConstructorDetailsPage({ constructorsData, driversData }
                     </div>
                 </Grid.Column>
             </Grid>
-                <div className="car">
-                    <Image src={`../assets/cars/${constructorId}.avif`} />
-                </div>
+                <Grid columns={3} stackable>
+                    <Grid.Column>
+                        <div className='prevButton'>
+                            {/* Previous constructor button */}
+                            <Link to={`/constructors/${constructorList[previousConstructorIndex].Constructor.constructorId}`}>
+                                <Button icon labelPosition='left'>
+                                    <Icon name='left arrow' />
+                                    Previous Constructor
+                                </Button>
+                            </Link>
+                        </div>
+                    </Grid.Column>
+                    <Grid.Column>
+                        <div className="car">
+                            <Image src={`../assets/cars/${constructorId}.avif`} />
+                        </div>
+                    </Grid.Column>
+                    <Grid.Column>
+                        <div className='nextButton'>
+                            {/* Next constructor button */}
+                            <Link to={`/constructors/${constructorList[nextConstructorIndex].Constructor.constructorId}`}>
+                                <Button icon labelPosition='right'>
+                                    <Icon name='right arrow' />
+                                    Next Constructor
+                                </Button>
+                            </Link>
+                        </div>
+                    </Grid.Column>
+                </Grid>
         </div>
     )
 }
